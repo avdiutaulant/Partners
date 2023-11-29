@@ -31,7 +31,7 @@ public class PartnerController {
     }
 
     @GetMapping("/partners/{id}")
-    public ResponseEntity<PartnerDto> findPartnerById(Long id){
+    public ResponseEntity<PartnerDto> findPartnerById(@PathVariable Long id){
         return ResponseEntity.ok(partnerMapper.toDto(partnerService.findPartnerById(id)));
     }
 
@@ -42,6 +42,7 @@ public class PartnerController {
 
     @PutMapping("/partners/{id}")
     public ResponseEntity<PartnerDto> updatePartner(@PathVariable Long id, @RequestBody PartnerDto partnerDto){
+        partnerDto.setId(id);
         return ResponseEntity.ok(partnerMapper.toDto(partnerService.updatePartner(partnerMapper.toEntity(partnerDto))));
     }
 

@@ -37,7 +37,7 @@ public class PartnerServiceImpl implements PartnerService{
 
     @Override
     public Partner updatePartner(Partner partner) {
-        Partner oldPartner = partnerRepository.findById(partner.getId()).orElseThrow(()-> new EntityNotFoundException("Partner not found with id " + partner.getId()));
+        Partner oldPartner = partnerRepository.findById(partner.getId()).orElseThrow(() -> new EntityNotFoundException("Partner not found with id " + partner.getId()));
         oldPartner.setCompanyName(partner.getCompanyName());
         oldPartner.setCompanyAddress(partner.getCompanyAddress());
         oldPartner.setCompanyPhone(partner.getCompanyPhone());
